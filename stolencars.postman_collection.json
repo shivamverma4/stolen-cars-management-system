@@ -1,0 +1,137 @@
+{
+  "info": {
+    "_postman_id": "042f14b8-6f6d-4fad-8331-c01e9e54f837",
+    "name": "stolencars",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "localhost:8081/user/{email}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used for getting user info based on the email entered."
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/available/pos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used to get the available Police Officer which are not assigned to any active stolen car."
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/stolen/cars/{regID}/{userType}/{uID}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used for getting Stolen Car details with specific to a userID(police officer userID or car owner userID), and car registration number."
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/stolen/cars/{uID}/{userType}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used to get all the stolen cars assigned to this userID and userType, "
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/user/new/{userType}",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"email\": \"\",\n\t\"name\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a POST API used to create a user.\nThe Body Params which are required are :\n1. Name of the user (`name`).\n2. Email of the user (`email`).\n3. UserType i.e. either owner or police (`userType`)."
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/stolen/car",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"regnum\": \"\",\n\t\"color\": \"\",\n\t\"ownerID\": \"\",\n\t\"description\": \"\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used to create stolen car record and assign any available Police Officer to this car and update the availability of the Police Office accordingly.\n\nBody params required are :\n1. regnum (Car Registration Number)\n2. color (Car Color)\n3. ownerID (Owner ID)\n5. description (A short description of the car)"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/stolen/car/status",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"oID\":\"\",\n\t\"poID\":\"\",\n\t\"status\": 0\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is required to change the status of the stolen car.\n\nBody Params required are:\n1. oID (Car Owner ID)\n2. poID (Police Officer ID)\n3. status (Status of the car)"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8081/stolen/car/assign/{uID}",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This API is used to assign any unassigned stolen car to this police officer user ID.\n\nBody Params required are :\n1. poID i.e Police Officer userID (`uID`)"
+      },
+      "response": []
+    }
+  ],
+  "protocolProfileBehavior": {}
+}
